@@ -1,0 +1,14 @@
+{
+  "name": "victorstack-ai/drupal-eu-sovereignty-checklist",
+  "description": "Drupal module to audit rendered HTML for external assets and help keep sites EU/GDPR sovereignty compliant.",
+  "type": "drupal-module",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\sovereignty_checklist\\": "src/"
+    }
+  }
+}

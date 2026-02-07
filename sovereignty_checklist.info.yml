@@ -1,0 +1,5 @@
+name: EU Sovereignty Checklist
+type: module
+description: 'Scans rendered markup and config for external assets (CDNs, trackers, embeds) to help keep Drupal sites GDPR/sovereignty compliant.'
+package: Custom
+core_version_requirement: ^10 || ^11

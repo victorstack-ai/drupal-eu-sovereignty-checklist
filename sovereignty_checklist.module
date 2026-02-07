@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * EU Sovereignty Checklist: gatekeeper for your site's external footprint.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sovereignty_checklist_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.sovereignty_checklist':
+      return (string) t('Scans rendered HTML and configuration for external assets (CDNs, trackers, embeds) that may leak data outside the EU. Use the allowlist to permit trusted domains.');
+    default:
+      return '';
+  }
+}

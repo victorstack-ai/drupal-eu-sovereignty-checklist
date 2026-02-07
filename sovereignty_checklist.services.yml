@@ -1,0 +1,10 @@
+services:
+  logger.channel.sovereignty_checklist:
+    parent: logger.channel_base
+    arguments: ['sovereignty_checklist']
+
+  sovereignty_checklist.auditor:
+    class: Drupal\sovereignty_checklist\Service\SovereigntyAuditor
+    arguments:
+      - '@logger.channel.sovereignty_checklist'
+      - '@config.factory'
