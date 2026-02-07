@@ -14,10 +14,18 @@ use Drupal\sovereignty_checklist\SovereigntyAuditorInterface;
 final class SovereigntyAuditorCollector {
 
   /**
+   * The registered auditors.
+   *
    * @var \Drupal\sovereignty_checklist\SovereigntyAuditorInterface[]
    */
   private array $auditors = [];
 
+  /**
+   * Adds an auditor.
+   *
+   * @param \Drupal\sovereignty_checklist\SovereigntyAuditorInterface $auditor
+   *   The auditor to add.
+   */
   public function addAuditor(SovereigntyAuditorInterface $auditor): void {
     $this->auditors[] = $auditor;
   }
@@ -25,7 +33,11 @@ final class SovereigntyAuditorCollector {
   /**
    * Runs all registered auditors and merges violations.
    *
+   * @param string $html
+   *   Raw HTML (e.g. full page or fragment).
+   *
    * @return array<int, array{tag: string, url: string, risk: string}>
+   *   Merged list of violations.
    */
   public function auditRenderedHtml(string $html): array {
     $violations = [];

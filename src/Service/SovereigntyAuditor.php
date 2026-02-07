@@ -9,7 +9,9 @@ use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\sovereignty_checklist\SovereigntyAuditorInterface;
 
 /**
- * Default auditor: scans HTML for external assets that may leak data outside the EU.
+ * Default auditor: scans HTML for external assets.
+ *
+ * Scans for assets that may leak data outside the EU.
  *
  * Flags CDNs, third-party trackers, and embeds that are not allowlisted.
  */
@@ -37,6 +39,7 @@ final class SovereigntyAuditor implements SovereigntyAuditorInterface {
    *
    * @param string $html
    *   Raw HTML (e.g. full page or fragment).
+   *
    * @return array<int, array{tag: string, url: string, risk: string}>
    *   List of violations.
    */
@@ -66,6 +69,12 @@ final class SovereigntyAuditor implements SovereigntyAuditorInterface {
 
   /**
    * Whether the URL points outside the current host.
+   *
+   * @param string $url
+   *   The URL to check.
+   *
+   * @return bool
+   *   TRUE if external, FALSE otherwise.
    */
   private function isExternal(string $url): bool {
     $url = trim($url);
@@ -80,6 +89,12 @@ final class SovereigntyAuditor implements SovereigntyAuditorInterface {
 
   /**
    * Whether the URL's host is in the allowlist.
+   *
+   * @param string $url
+   *   The URL to check.
+   *
+   * @return bool
+   *   TRUE if allowlisted, FALSE otherwise.
    */
   private function isAllowlisted(string $url): bool {
     $host = parse_url($url, \PHP_URL_HOST);
@@ -99,6 +114,7 @@ final class SovereigntyAuditor implements SovereigntyAuditorInterface {
    * Allowlisted domains from config (or defaults).
    *
    * @return list<string>
+   *   List of allowlisted domains.
    */
   private function getAllowlistDomains(): array {
     if ($this->configFactory === NULL) {

@@ -6,6 +6,20 @@
   "require": {
     "php": ">=8.2"
   },
+  "require-dev": {
+    "drupal/core": "^10 || ^11",
+    "drupal/core-dev": "^10 || ^11"
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "composer/installers": true,
+      "drupal/core-project-message": true,
+      "drupal/core-vendor-hardening": true,
+      "drupal/core-composer-scaffold": true
+    }
+  },
   "autoload": {
     "psr-4": {
       "Drupal\\sovereignty_checklist\\": "src/"
