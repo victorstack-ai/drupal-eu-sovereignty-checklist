@@ -6,13 +6,14 @@ namespace Drupal\sovereignty_checklist\Service;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
+use Drupal\sovereignty_checklist\SovereigntyAuditorInterface;
 
 /**
- * Audits rendered HTML for external assets that may leak data outside the EU.
+ * Default auditor: scans HTML for external assets that may leak data outside the EU.
  *
  * Flags CDNs, third-party trackers, and embeds that are not allowlisted.
  */
-final class SovereigntyAuditor {
+final class SovereigntyAuditor implements SovereigntyAuditorInterface {
 
   /**
    * Tags and attributes to scan for external URLs.

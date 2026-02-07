@@ -8,3 +8,18 @@ services:
     arguments:
       - '@logger.channel.sovereignty_checklist'
       - '@config.factory'
+    tags:
+      - { name: sovereignty_checklist.auditor }
+
+  sovereignty_checklist.collector:
+    class: Drupal\sovereignty_checklist\Service\SovereigntyAuditorCollector
+    tags:
+      - { name: service_collector, tag: sovereignty_checklist.auditor, call: addAuditor }
+
+  sovereignty_checklist.response_subscriber:
+    class: Drupal\sovereignty_checklist\EventSubscriber\SovereigntyResponseSubscriber
+    arguments:
+      - '@sovereignty_checklist.collector'
+      - '@logger.channel.sovereignty_checklist'
+    tags:
+      - { name: event_subscriber }
