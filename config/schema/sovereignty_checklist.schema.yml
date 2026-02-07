@@ -1,16 +1,16 @@
 sovereignty_checklist.settings:
   type: config_object
-  label: 'EU Sovereignty Checklist settings'
+  label: "EU Sovereignty Checklist settings"
   mapping:
     allowlist_domains:
       type: sequence
-      label: 'Allowlisted domains'
+      label: "Allowlisted domains"
       sequence:
         type: string
         label: Domain
     strict_mode:
       type: boolean
-      label: 'Strict mode'
+      label: "Strict mode"
     block_non_compliant_renders:
       type: boolean
-      label: 'Block non-compliant renders'
+      label: "Block non-compliant renders"

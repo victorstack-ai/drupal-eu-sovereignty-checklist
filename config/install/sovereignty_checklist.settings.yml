@@ -1,5 +1,5 @@
 allowlist_domains:
-  - 'europa.eu'
-  - 'analytics.europa.eu'
+  - "europa.eu"
+  - "analytics.europa.eu"
 strict_mode: true
 block_non_compliant_renders: false

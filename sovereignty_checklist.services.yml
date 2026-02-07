@@ -1,25 +1,29 @@
 services:
   logger.channel.sovereignty_checklist:
     parent: logger.channel_base
-    arguments: ['sovereignty_checklist']
+    arguments: ["sovereignty_checklist"]
 
   sovereignty_checklist.auditor:
     class: Drupal\sovereignty_checklist\Service\SovereigntyAuditor
     arguments:
-      - '@logger.channel.sovereignty_checklist'
-      - '@config.factory'
+      - "@logger.channel.sovereignty_checklist"
+      - "@config.factory"
     tags:
       - { name: sovereignty_checklist.auditor }
 
   sovereignty_checklist.collector:
     class: Drupal\sovereignty_checklist\Service\SovereigntyAuditorCollector
     tags:
-      - { name: service_collector, tag: sovereignty_checklist.auditor, call: addAuditor }
+      - {
+          name: service_collector,
+          tag: sovereignty_checklist.auditor,
+          call: addAuditor,
+        }
 
   sovereignty_checklist.response_subscriber:
     class: Drupal\sovereignty_checklist\EventSubscriber\SovereigntyResponseSubscriber
     arguments:
-      - '@sovereignty_checklist.collector'
-      - '@logger.channel.sovereignty_checklist'
+      - "@sovereignty_checklist.collector"
+      - "@logger.channel.sovereignty_checklist"
     tags:
       - { name: event_subscriber }
