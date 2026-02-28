@@ -1,28 +1,28 @@
 {
-  "name": "victorstack-ai/drupal-eu-sovereignty-checklist",
-  "description": "Drupal module to audit rendered HTML for external assets and help keep sites EU/GDPR sovereignty compliant.",
-  "type": "drupal-module",
-  "license": "MIT",
-  "require": {
-    "php": ">=8.2"
-  },
-  "require-dev": {
-    "drupal/core": "^10 || ^11",
-    "drupal/core-dev": "^10 || ^11"
-  },
-  "config": {
-    "allow-plugins": {
-      "phpstan/extension-installer": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true,
-      "composer/installers": true,
-      "drupal/core-project-message": true,
-      "drupal/core-vendor-hardening": true,
-      "drupal/core-composer-scaffold": true
+    "name": "victorstack-ai/drupal-eu-sovereignty-checklist",
+    "description": "Drupal module to audit rendered HTML for external assets and help keep sites EU/GDPR sovereignty compliant.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "drupal/core": "^10 || ^11",
+        "drupal/core-dev": "^10 || ^11"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true,
+            "drupal/core-project-message": true,
+            "drupal/core-vendor-hardening": true,
+            "drupal/core-composer-scaffold": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\sovereignty_checklist\\": "src/"
+        }
     }
-  },
-  "autoload": {
-    "psr-4": {
-      "Drupal\\sovereignty_checklist\\": "src/"
-    }
-  }
 }

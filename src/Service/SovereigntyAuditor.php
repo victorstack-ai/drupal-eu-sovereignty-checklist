@@ -15,7 +15,7 @@ use Drupal\sovereignty_checklist\SovereigntyAuditorInterface;
  *
  * Flags CDNs, third-party trackers, and embeds that are not allowlisted.
  */
-final class SovereigntyAuditor implements SovereigntyAuditorInterface {
+class SovereigntyAuditor implements SovereigntyAuditorInterface {
 
   /**
    * Tags and attributes to scan for external URLs.

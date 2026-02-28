@@ -11,7 +11,7 @@ use Drupal\sovereignty_checklist\SovereigntyAuditorInterface;
  *
  * Tag services with sovereignty_checklist.auditor to add auditors.
  */
-final class SovereigntyAuditorCollector {
+class SovereigntyAuditorCollector {
 
   /**
    * The registered auditors.

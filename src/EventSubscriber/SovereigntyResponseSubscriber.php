@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
  *
  * Implements the flow: Request → Page Render → Sovereignty Check → Log.
  */
-final class SovereigntyResponseSubscriber implements EventSubscriberInterface {
+class SovereigntyResponseSubscriber implements EventSubscriberInterface {
 
   /**
    * Constructs a new SovereigntyResponseSubscriber object.
